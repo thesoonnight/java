@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane fx:id="BP1" onMouseReleased="#releaseBP1" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: rgba(50,50,50,0);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bit702.suspendpad.EXViewController">
+<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: rgba(50,50,50,0);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bit702.suspendpad.EXViewController">
    <center>
       <BorderPane style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #9698efff 0.0%, #fac6d2ff 100.0%);" BorderPane.alignment="CENTER">
          <center>
-            <AnchorPane fx:id="AP1" minHeight="0.0" minWidth="0.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #accafdff 0.0%, #febeebff 100.0%);">
+            <AnchorPane fx:id="AP1" minHeight="0.0" minWidth="0.0" onMouseReleased="#releaseAP1" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #accafdff 0.0%, #febeebff 100.0%);">
                <children>
                   <StackPane fx:id="SP1" layoutX="200.0" layoutY="125.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -21,7 +21,7 @@
                      </children>
                   </StackPane>
                   <ImageView fx:id="IV1" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <TextArea fx:id="TA1" onKeyPressed="#keypressTA1" onKeyReleased="#keyreleaseTA1" onScroll="#scrollTA1" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                  <TextArea fx:id="TA1" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </center>

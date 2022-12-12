@@ -37,15 +37,9 @@ public class Pad {
         stage.setAlwaysOnTop(true);
         //随机位置---------------------------------------
         Random random=new Random();
-        stage.setX(random.nextInt(1600));
-        stage.setY(random.nextInt(900));
+        stage.setX(random.nextInt(1200));
+        stage.setY(random.nextInt(1000));
         //----------------------------------------------
         stage.show();
-    }
-    public void show(){
-        stage.show();
-    }
-    public void hide(){
-        stage.hide();
     }
 }

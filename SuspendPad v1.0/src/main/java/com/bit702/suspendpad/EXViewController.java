@@ -1,18 +1,16 @@
 package com.bit702.suspendpad;
 
 import javafx.animation.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -28,7 +26,7 @@ public class EXViewController {
     @FXML
     AnchorPane AP1;
     @FXML
-    BorderPane BP1;
+    BorderPane borderPane;
     @FXML
     StackPane SP1;
     @FXML
@@ -39,19 +37,8 @@ public class EXViewController {
         IV1.fitWidthProperty().bind(AP1.widthProperty());
         IV1.fitHeightProperty().bind(AP1.heightProperty());
         IV1.setVisible(false);
+
         TA1.setVisible(false);
-        TA1.setOnScroll(new EventHandler<ScrollEvent>() {
-            @Override
-            public void handle(ScrollEvent scrollEvent) {
-                double size=TA1.getFont().getSize();
-                if(scrollEvent.getDeltaY()>0){
-                    TA1.setFont(new Font(size+1));
-                }
-                if(scrollEvent.getDeltaY()<0){
-                    if(size>1)TA1.setFont(new Font(size-1));
-                }
-            }
-        });
     }
     @FXML void enterRegion(MouseEvent mouseEvent){
         Region region = (Region) mouseEvent.getSource();
@@ -65,7 +52,7 @@ public class EXViewController {
         if(mouseEvent.getButton()== MouseButton.SECONDARY){
             FileChooser fileChooser=new FileChooser();
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("111","*.jpg","*.png","*.jpeg","*.gif","*.bmp"));
-            Stage stage=getStage(BP1);
+            Stage stage=getStage(borderPane);
             File file = fileChooser.showOpenDialog(stage);
             if(file==null){
                 return;
@@ -86,30 +73,9 @@ public class EXViewController {
             TA1.setVisible(true);
         }
     }
-    @FXML void releaseBP1(MouseEvent mouseEvent){
+    @FXML void releaseAP1(MouseEvent mouseEvent){
         if(mouseEvent.getButton()==MouseButton.MIDDLE){
             getStage(AP1).close();//中键退出
         }
-    }
-    boolean CTRLTA1=false;
-    @FXML void keypressTA1(KeyEvent keyEvent){
-        if(keyEvent.isControlDown()){
-            CTRLTA1=true;
-        }
-    }
-    @FXML void keyreleaseTA1(KeyEvent keyEvent){
-        if(!keyEvent.isControlDown()){
-            CTRLTA1=false;
-        }
-    }
-    @FXML void scrollTA1(ScrollEvent scrollEvent){
-        /*if(CTRLTA1==false)return;
-        double size=TA1.getFont().getSize();
-        if(scrollEvent.getDeltaY()>0){
-            TA1.setFont(new Font(size+1));
-        }
-        if(scrollEvent.getDeltaY()<0){
-            if(size>1)TA1.setFont(new Font(size-1));
-        }*/
     }
 }
