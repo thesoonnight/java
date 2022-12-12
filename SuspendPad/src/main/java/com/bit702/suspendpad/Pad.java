@@ -5,6 +5,7 @@ import javafx.animation.Transition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -27,6 +28,11 @@ public class Pad {
         scene = new Scene(root, X, Y, Color.TRANSPARENT);
         stage.setTitle("I'm No. "+Id+" ~~~");
         stage.setScene(scene);
+
+        scene.setOnDragDetected((MouseEvent event)->{
+            System.out.print("1");
+        });
+
         BasicFunction basicFunction = new BasicFunction();
         basicFunction.setNoBorder(stage,root);
         stage.setAlwaysOnTop(true);
