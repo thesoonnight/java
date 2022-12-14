@@ -119,6 +119,10 @@ public class ViewController {
                 setOnMouseReleased(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
+                        //确保点击到的不是空的
+                        if(getListView().getItems().size()<=getIndex()){
+                            return;
+                        }
                         String s;//鼠标指着的Cell对应的padView的编号
                         s=getListView().getItems().get(getIndex()).getString();//获取编号
                         int id=Integer.parseInt(s);//转化为整数
