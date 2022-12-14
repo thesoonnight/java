@@ -32,7 +32,7 @@
                   </HBox>
                   <BorderPane VBox.vgrow="ALWAYS">
                      <center>
-                        <ListView fx:id="LV1" editable="true" fixedCellSize="50.0" onMouseClicked="#clickListView" opacity="0.9" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(255,0,0,0.2); -fx-scrollbar-style: red;" BorderPane.alignment="CENTER" />
+                        <ListView fx:id="LV1" editable="true" fixedCellSize="50.0" opacity="0.9" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(255,0,0,0.2); -fx-scrollbar-style: red;" BorderPane.alignment="CENTER" />
                      </center>
                      <VBox.margin>
                         <Insets />

@@ -4,6 +4,8 @@ import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,8 +22,12 @@ import javafx.scene.Node;
 
 import java.io.File;
 import java.io.IOException;
-
+/*
+pad的控制器
+ */
 public class EXViewController {
+    boolean CTRLTA1=false;//在TA1时ctrl是否按下
+    //获取当前舞台
     private Stage getStage(Node node){
         return (Stage)node.getScene().getWindow();
     }
@@ -35,33 +41,30 @@ public class EXViewController {
     ImageView IV1;
     @FXML
     TextArea TA1;
+    //初始化
     @FXML void initialize(){
+        //将IV1的大小绑定为AP1的大小-----------------------------
         IV1.fitWidthProperty().bind(AP1.widthProperty());
         IV1.fitHeightProperty().bind(AP1.heightProperty());
+        //---------------------------------------------------
+        //初始时图片和文字区均不可见----
         IV1.setVisible(false);
         TA1.setVisible(false);
-        TA1.setOnScroll(new EventHandler<ScrollEvent>() {
-            @Override
-            public void handle(ScrollEvent scrollEvent) {
-                double size=TA1.getFont().getSize();
-                if(scrollEvent.getDeltaY()>0){
-                    TA1.setFont(new Font(size+1));
-                }
-                if(scrollEvent.getDeltaY()<0){
-                    if(size>1)TA1.setFont(new Font(size-1));
-                }
-            }
-        });
+        //------------------------
     }
+    //鼠标进入图标变色
     @FXML void enterRegion(MouseEvent mouseEvent){
         Region region = (Region) mouseEvent.getSource();
         region.setStyle("-fx-background-color: #CCFFFF; -fx-shape: \"M512 0c282.7776 0 512 229.2224 512 512s-229.2224 512-512 512S0 794.7776 0 512 229.2224 0 512 0z m0 76.8C271.6416 76.8 76.8 271.6416 76.8 512s194.8416 435.2 435.2 435.2 435.2-194.8416 435.2-435.2S752.3584 76.8 512 76.8zM512 230.4a38.4 38.4 0 0 1 38.4 38.4v204.7744l204.8 0.0256a38.4 38.4 0 0 1 0 76.8l-204.8-0.0256V755.2a38.4 38.4 0 0 1-76.8 0v-204.8256l-204.8 0.0256a38.4 38.4 0 0 1 0-76.8l204.8-0.0256V268.8A38.4 38.4 0 0 1 512 230.4z\";");
     }
+    //鼠标离开图标恢复
     @FXML void exitRegion(MouseEvent mouseEvent){
         Region region = (Region) mouseEvent.getSource();
         region.setStyle("-fx-background-color: grey; -fx-shape: \"M512 0c282.7776 0 512 229.2224 512 512s-229.2224 512-512 512S0 794.7776 0 512 229.2224 0 512 0z m0 76.8C271.6416 76.8 76.8 271.6416 76.8 512s194.8416 435.2 435.2 435.2 435.2-194.8416 435.2-435.2S752.3584 76.8 512 76.8zM512 230.4a38.4 38.4 0 0 1 38.4 38.4v204.7744l204.8 0.0256a38.4 38.4 0 0 1 0 76.8l-204.8-0.0256V755.2a38.4 38.4 0 0 1-76.8 0v-204.8256l-204.8 0.0256a38.4 38.4 0 0 1 0-76.8l204.8-0.0256V268.8A38.4 38.4 0 0 1 512 230.4z\";");
     }
+    //释放按钮后的事件
     @FXML void releaseRegion(MouseEvent mouseEvent){
+        //如果是右键则打开图片
         if(mouseEvent.getButton()== MouseButton.SECONDARY){
             FileChooser fileChooser=new FileChooser();
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("111","*.jpg","*.png","*.jpeg","*.gif","*.bmp"));
@@ -75,23 +78,21 @@ public class EXViewController {
                 IV1.setVisible(true);
                 SP1.setVisible(false);
             }
-            // 获取文件的扩展名（即文件类型）
-            //String fileType = file.getName().substring(file.getName().lastIndexOf(".") + 1);
-            //if (fileType.equalsIgnoreCase("png") || fileType.equalsIgnoreCase("jpg")) {
-            //System.out.print("this is");
-            //}
             return;
         }
+        //如果是左键则打开文字
         if(mouseEvent.getButton()==MouseButton.PRIMARY){
             TA1.setVisible(true);
+            SP1.setVisible(false);
         }
     }
+    //释放中键隐藏窗口
     @FXML void releaseBP1(MouseEvent mouseEvent){
         if(mouseEvent.getButton()==MouseButton.MIDDLE){
-            getStage(AP1).close();//中键退出
+            getStage(AP1).hide();//中键隐藏
         }
     }
-    boolean CTRLTA1=false;
+    //在TA1是ctrl是否按下-------------------------------------
     @FXML void keypressTA1(KeyEvent keyEvent){
         if(keyEvent.isControlDown()){
             CTRLTA1=true;
@@ -102,14 +103,26 @@ public class EXViewController {
             CTRLTA1=false;
         }
     }
+    //------------------------------------------------------
+    //在TA1时按ctrl加滚轮滚动调节字体大小
     @FXML void scrollTA1(ScrollEvent scrollEvent){
-        /*if(CTRLTA1==false)return;
+        if(!CTRLTA1)return;
         double size=TA1.getFont().getSize();
+        //向上滚
         if(scrollEvent.getDeltaY()>0){
             TA1.setFont(new Font(size+1));
+            //重置光标----------------------------
+            TA1.setText(TA1.getText());
+            TA1.positionCaret(TA1.getLength());
+            //----------------------------------
         }
+        //向下滚
         if(scrollEvent.getDeltaY()<0){
             if(size>1)TA1.setFont(new Font(size-1));
-        }*/
+            //重置光标----------------------------
+            TA1.setText(TA1.getText());
+            TA1.positionCaret(TA1.getLength());
+            //----------------------------------
+        }
     }
 }

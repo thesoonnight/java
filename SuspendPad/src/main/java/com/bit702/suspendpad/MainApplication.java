@@ -10,11 +10,11 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
-
+/*
+主程序
+ */
 public class MainApplication extends Application {
-
     @Override
     public void start(Stage stage) throws IOException {
         //基础----------------------------------------------------
@@ -31,10 +31,8 @@ public class MainApplication extends Application {
         BasicFunction basicFunction= new BasicFunction();
         basicFunction.setNoBorder(stage,root);
         //--------------------------------------------------
-
         stage.show();
     }
-
     public static void main(String[] args) {
         launch();
     }

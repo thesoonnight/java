@@ -4,7 +4,9 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+/*
+窗口的基础函数
+*/
 public class BasicFunction {
     //无边框参数---------------------------------------------
     private static boolean isRight;// 是否处于右边界调整窗口状态
