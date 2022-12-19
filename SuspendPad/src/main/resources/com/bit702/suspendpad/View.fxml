@@ -10,32 +10,25 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" id="BP1_CSSID" fx:id="BP1" prefHeight="549.0" prefWidth="430.0"
-            style="-fx-background-color: rgba(0,0,0,0);" xmlns="http://javafx.com/javafx/19"
-            fx:controller="com.bit702.suspendpad.ViewController">
+<BorderPane id="BP1_CSSID" fx:id="BP1" prefHeight="549.0" prefWidth="430.0" style="-fx-background-color: rgba(0,0,0,0);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bit702.suspendpad.ViewController">
    <center>
-      <AnchorPane id="BP1_AP1_CSSID" fx:id="AP1" minHeight="0.0" minWidth="0.0"
-                  style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #23d0f3ff 0.0%, #d791f9ff 50.0%, #fe7b84ff 100.0%); -fx-border-color: rgba(0,0,0,0.5); -fx-border-width: 3;"
-                  BorderPane.alignment="CENTER">
+      <AnchorPane id="BP1_AP1_CSSID" fx:id="AP1" minHeight="0.0" minWidth="0.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #23d0f3ff 0.0%, #d791f9ff 50.0%, #fe7b84ff 100.0%); -fx-border-color: rgba(0,0,0,0.5); -fx-border-width: 3;" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="VB1" layoutX="3.0" layoutY="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="VB1" layoutX="3.0" layoutY="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <HBox fx:id="HB1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="79.0" prefWidth="421.0"
-                        VBox.vgrow="NEVER">
+                  <HBox fx:id="HB1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="79.0" prefWidth="421.0" VBox.vgrow="NEVER">
                      <children>
-                        <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                                   prefHeight="150.0" prefWidth="205.0" HBox.hgrow="ALWAYS">
+                        <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="205.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Region fx:id="Add" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0"
-                                      onMouseEntered="#enterRegion" onMouseExited="#exitRegion"
-                                      onMouseReleased="#releaseAdd" prefHeight="50.0" prefWidth="50.0"
-                                      style="-fx-shape: &quot;M512 0c282.7776 0 512 229.2224 512 512s-229.2224 512-512 512S0 794.7776 0 512 229.2224 0 512 0z m0 76.8C271.6416 76.8 76.8 271.6416 76.8 512s194.8416 435.2 435.2 435.2 435.2-194.8416 435.2-435.2S752.3584 76.8 512 76.8zM512 230.4a38.4 38.4 0 0 1 38.4 38.4v204.7744l204.8 0.0256a38.4 38.4 0 0 1 0 76.8l-204.8-0.0256V755.2a38.4 38.4 0 0 1-76.8 0v-204.8256l-204.8 0.0256a38.4 38.4 0 0 1 0-76.8l204.8-0.0256V268.8A38.4 38.4 0 0 1 512 230.4z&quot;; -fx-background-color: white;"
-                                      StackPane.alignment="CENTER"/>
+                              <Region fx:id="Add" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" onMouseEntered="#enterRegion" onMouseExited="#exitRegion" onMouseReleased="#releaseAdd" prefHeight="50.0" prefWidth="50.0" style="-fx-shape: &quot;M512 0c282.7776 0 512 229.2224 512 512s-229.2224 512-512 512S0 794.7776 0 512 229.2224 0 512 0z m0 76.8C271.6416 76.8 76.8 271.6416 76.8 512s194.8416 435.2 435.2 435.2 435.2-194.8416 435.2-435.2S752.3584 76.8 512 76.8zM512 230.4a38.4 38.4 0 0 1 38.4 38.4v204.7744l204.8 0.0256a38.4 38.4 0 0 1 0 76.8l-204.8-0.0256V755.2a38.4 38.4 0 0 1-76.8 0v-204.8256l-204.8 0.0256a38.4 38.4 0 0 1 0-76.8l204.8-0.0256V268.8A38.4 38.4 0 0 1 512 230.4z&quot;; -fx-background-color: white;" StackPane.alignment="CENTER" />
                            </children>
                         </StackPane>
-                        <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                                   prefHeight="150.0" prefWidth="215.0" HBox.hgrow="ALWAYS">
+                        <StackPane prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Region fx:id="Shot" maxHeight="45.0" maxWidth="50.0" minHeight="45.0" minWidth="50.0" onMouseEntered="#enterRegion" onMouseExited="#exitRegion" onMouseReleased="#releaseShot" prefHeight="45.0" prefWidth="50.0" style="-fx-shape: &quot;M290.133333 290.133333h-85.333333a51.2 51.2 0 0 0-51.2 51.2v443.733334a51.2 51.2 0 0 0 51.2 51.2h614.4a51.2 51.2 0 0 0 51.2-51.2V341.333333a51.2 51.2 0 0 0-51.2-51.2h-85.333333a51.2 51.2 0 0 1-48.571734-35.003733l-10.8032-32.392533A51.2 51.2 0 0 0 625.92 187.733333h-227.84a51.2 51.2 0 0 0-48.571733 35.003734l-10.8032 32.392533A51.2 51.2 0 0 1 290.133333 290.133333z m0-51.2l10.786134-32.375466A102.4 102.4 0 0 1 398.08 136.533333h227.84a102.4 102.4 0 0 1 97.160533 70.024534L733.866667 238.933333h85.333333a102.4 102.4 0 0 1 102.4 102.4v443.733334a102.4 102.4 0 0 1-102.4 102.4H204.8a102.4 102.4 0 0 1-102.4-102.4V341.333333a102.4 102.4 0 0 1 102.4-102.4h85.333333zM512 725.333333c-98.9696 0-179.2-80.2304-179.2-179.2S413.0304 366.933333 512 366.933333 691.2 447.163733 691.2 546.133333 610.9696 725.333333 512 725.333333z m0-51.2a128 128 0 1 0 0-256 128 128 0 0 0 0 256z&quot;; -fx-background-color: white;" StackPane.alignment="CENTER" />
+                           </children>
+                        </StackPane>
+                        <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="215.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Region fx:id="Exit" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" onMouseEntered="#enterRegion" onMouseExited="#exitRegion" onMouseReleased="#releaseExit" prefHeight="50.0" prefWidth="50.0" style="-fx-shape: &quot;M512 0c282.7776 0 512 229.2224 512 512s-229.2224 512-512 512S0 794.7776 0 512 229.2224 0 512 0z m0 76.8C271.6416 76.8 76.8 271.6416 76.8 512s194.8416 435.2 435.2 435.2 435.2-194.8416 435.2-435.2S752.3584 76.8 512 76.8zM312.8832 312.8832a38.4 38.4 0 0 1 54.2976 0L512 457.6768l144.8448-144.7936a38.4 38.4 0 0 1 54.2976 54.2976L566.2976 512l144.8192 144.8448a38.4 38.4 0 0 1-54.2976 54.2976l-144.8448-144.8192-144.7936 144.8192a38.4 38.4 0 0 1-54.2976-54.2976l144.7936-144.8448-144.7936-144.7936a38.4 38.4 0 0 1 0-54.2976z&quot;; -fx-background-color: white;" StackPane.alignment="CENTER" />
                            </children>
@@ -44,10 +37,7 @@
                   </HBox>
                   <BorderPane VBox.vgrow="ALWAYS">
                      <center>
-                        <ListView fx:id="LV1" editable="true" fixedCellSize="50.0" opacity="0.9" prefHeight="200.0"
-                                  prefWidth="200.0"
-                                  style="-fx-background-color: rgba(255,0,0,0.2); -fx-scrollbar-style: red;"
-                                  BorderPane.alignment="CENTER"/>
+                        <ListView fx:id="LV1" editable="true" fixedCellSize="50.0" opacity="0.9" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(255,0,0,0.2); -fx-scrollbar-style: red;" BorderPane.alignment="CENTER" />
                      </center>
                      <VBox.margin>
                         <Insets />

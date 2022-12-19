@@ -28,10 +28,13 @@ import java.util.List;
 主界面的控制器
  */
 public class ViewController {
+    public static int a=1;
     private int Pad_cnt=0;//当前pad的个数
     private List <Pad> pad;//用于存放pad
     private List <PadView> padView;//用于存放padView
     private ObservableList<PadView> observableList;//ListView里面用来存放padView
+    public static Stage stage;
+    private ScreenShot screenShot;
     //获取对应的舞台
     private Stage getStage(Node node){
         return (Stage)node.getScene().getWindow();
@@ -55,6 +58,7 @@ public class ViewController {
     ImageView IV1;
     //初始化
     @FXML void initialize(){
+        screenShot=new ScreenShot();
         pad=new ArrayList<>();
         padView=new ArrayList<>();
         observableList=LV1.getItems();
@@ -165,6 +169,7 @@ public class ViewController {
         rotateTransition.setToAngle(180);
         rotateTransition.setCycleCount(1);
         rotateTransition.play();
+        stage=getStage(BP1);
     }
     //鼠标离开图标
     @FXML void exitRegion(MouseEvent mouseEvent){
@@ -187,6 +192,24 @@ public class ViewController {
         for(int i=0;i<pad.size();i++){
             pad.get(i).close();
         }
-        getStage(BP1).close();
+        stage.close();
+    }
+    @FXML void releaseShot(MouseEvent mouseEvent)throws IOException{
+        if(mouseEvent.getButton()==MouseButton.PRIMARY){
+            stage.hide();
+            screenShot.show();
+        }
+        if(mouseEvent.getButton()==MouseButton.SECONDARY){
+            if(screenShot.getWritableImage()==null){
+
+            }
+            else {
+                Pad tmp=new Pad(Pad_cnt,400,400);
+                tmp.showAsImage(screenShot.getWritableImage());
+                pad.add(tmp);
+                padView.add(new PadView(""+(pad.size()-1),pad.get(pad.size()-1).getSnap()));
+                observableList.add(padView.get(padView.size()-1));
+            }
+        }
     }
 }

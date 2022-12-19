@@ -7,11 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -78,5 +80,12 @@ public class Pad {
     //获取有没有被close
     public boolean isAlive() {
         return alive;
+    }
+    public void showAsImage(Image image){
+        ImageView imageView=(ImageView) root.lookup("#IV1");
+        StackPane stackPane=(StackPane) root.lookup("#SP1");
+        stackPane.setVisible(false);
+        imageView.setImage(image);
+        imageView.setVisible(true);
     }
 }
