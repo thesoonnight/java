@@ -1,9 +1,19 @@
 package com.bit702.suspendpad;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 /*
 窗口的基础函数
 */
@@ -90,4 +100,25 @@ public class BasicFunction {
         });
     }
     //--------------------------------------------------------------------------------------------------------
+    //将图片转换为文件，用于OCR识别----------------------------------
+    static public File toFile(Image img){
+        int width = (int) img.getWidth();
+        int height = (int) img.getHeight();
+        WritableImage writableImage = new WritableImage(width, height);
+        PixelWriter pixelWriter = writableImage.getPixelWriter();
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                pixelWriter.setArgb(x, y, img.getPixelReader().getArgb(x, y));
+            }
+        }
+
+        File file = new File("image.png");
+        try (FileOutputStream out = new FileOutputStream(file)) {
+            ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", out);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return file;
+    }
+    //------------------------------------------------------------
 }
