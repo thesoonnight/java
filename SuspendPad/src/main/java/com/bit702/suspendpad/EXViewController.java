@@ -27,6 +27,8 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+
 /*
 pad的控制器
  */
@@ -131,10 +133,19 @@ public class EXViewController {
         }
     }
     //右键点击图片进行OCR识别
-    @FXML void clickIV1(MouseEvent mouseEvent){
+    @FXML void clickIV1(MouseEvent mouseEvent)throws IOException{
         if(mouseEvent.getButton()==MouseButton.SECONDARY){
             Image img=IV1.getImage();
-            String string=OcrDemo.get(BasicFunction.toFile(img));
+            //-----------------------------------------------------
+            ArrayList<String> arrayList=Ocr.ocr(img);
+            String string="";
+            for(String s:arrayList){
+                string=string+"\n"+s;
+            }
+            //-----------------------------------------------------
+            //注：如果文字识别功能失效，可能是因为时间太久导致百度的权限到期，将上部分横线中的注释掉再删掉下面一行的注释即可
+            //String string=OcrDemo.get(BasicFunction.toFile(img));
+
             //设置剪切板---------------
             Clipboard clipboard = Clipboard.getSystemClipboard();
             ClipboardContent content = new ClipboardContent();

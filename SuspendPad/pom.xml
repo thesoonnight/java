@@ -14,8 +14,6 @@
         <junit.version>5.9.0</junit.version>
     </properties>
 
-
-
     <build>
         <plugins>
             <plugin>
@@ -50,4 +48,11 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10</version>
+        </dependency>
+    </dependencies>
 </project>
